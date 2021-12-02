@@ -1,6 +1,6 @@
 import os
-
 import discord
+
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -40,5 +40,11 @@ async def hug(ctx, *, member):
 async def hugme(ctx):
   author_name = ctx.author.mention
   await ctx.send (f'Templar hugs {author_name} ❤')
+
+@client.command()
+async def pat(ctx, *, member):
+  #author_name = ctx.message.author.name
+  author_name = ctx.author.mention
+  await ctx.send (f'https://cdn.discordapp.com/emojis/911024348586975304.gif')
 
 client.run(TOKEN)
