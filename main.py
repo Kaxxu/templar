@@ -1,9 +1,9 @@
 import os
 import discord
+import random
 
 from discord.ext import commands
 from dotenv import load_dotenv
-
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -39,12 +39,34 @@ async def hug(ctx, *, member):
 @client.command()
 async def hugme(ctx):
   author_name = ctx.author.mention
-  await ctx.send (f'Templar hugs {author_name} ❤')
+  await ctx.send (f'Pom hugs {author_name} ❤')
 
 @client.command()
 async def pat(ctx, *, member):
   #author_name = ctx.message.author.name
   author_name = ctx.author.mention
   await ctx.send (f'https://cdn.discordapp.com/emojis/911024348586975304.gif')
+
+@client.command()
+async def cool(ctx):
+  author_name = ctx.author.mention
+  value = random.randint(1, 100 - 1)
+  await ctx.send (f'{author_name} is {value}% cool!!')
+
+@client.command()
+async def cursed(ctx):
+  author_name = ctx.author.mention
+  value = random.randint(0, 100 - 1)
+  await ctx.send (f'The above cursed post is {value}% cursed!!')
+
+@client.command()
+async def hi(ctx):
+  author_name = ctx.author.mention
+  await ctx.send (f'https://tenor.com/view/hello-there-private-from-penguins-of-madagascar-hi-wave-hey-there-gif-16043627')
+
+@client.command()
+async def bye(ctx):
+  author_name = ctx.author.mention
+  await ctx.send (f'https://tenor.com/view/bye-cry-sad-baby-girl-gif-7550145')
 
 client.run(TOKEN)
