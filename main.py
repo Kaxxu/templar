@@ -17,9 +17,14 @@ client = discord.Client()
 # Commands #
 ############
 client = commands.Bot(command_prefix='?')
-client.remove_command("help")
+client.remove_command("rem")
 
 # templarCommand()
+
+@client.command()
+async def help(ctx, *, member):
+#  author_name = ctx.message.author.name
+  await ctx.send (f'Commands to use - command prefix `?`: `Ban; unban; hug; hugme; pat; cool; cursed; hi; bye`')
 
 @client.command()
 async def ban(ctx, *, member):
@@ -68,5 +73,10 @@ async def hi(ctx):
 async def bye(ctx):
   author_name = ctx.author.mention
   await ctx.send (f'https://tenor.com/view/bye-cry-sad-baby-girl-gif-7550145')
+
+@client.command()
+async def stupid(ctx, *, member):
+  author_name = ctx.author.mention
+  await ctx.send (f'NO {author_name}!! You are not stupid, just clumsy!! ❤')
 
 client.run(TOKEN)
