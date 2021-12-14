@@ -1,9 +1,9 @@
 import os
-
 import discord
+import random
+
 from discord.ext import commands
 from dotenv import load_dotenv
-
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -46,7 +46,5 @@ async def cool(ctx):
   author_name = ctx.author.mention
   value = random.randint(1, 100 - 1)
   await ctx.send (f'{author_name} is {value}% cool!!')
-
-
 
 client.run(TOKEN)
