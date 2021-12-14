@@ -41,4 +41,12 @@ async def hugme(ctx):
   author_name = ctx.author.mention
   await ctx.send (f'Templar hugs {author_name} ❤')
 
+@client.command()
+async def cool(ctx):
+  author_name = ctx.author.mention
+  value = random.randint(1, 100 - 1)
+  await ctx.send (f'{author_name} is {value}% cool!!')
+
+
+
 client.run(TOKEN)
