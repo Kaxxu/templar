@@ -1,1 +1,1 @@
-# templar
+# Templar Bot
