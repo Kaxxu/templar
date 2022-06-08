@@ -1,20 +1,3 @@
-# TERRAFORM CLOUD
-#terraform {
-#  required_version = "= 1.2.1"
-#
-#  required_providers {
-#    aws = {
-#      source  = "hashicorp/aws"
-#      version = "4.6.0"
-#    }
-#  }
-#
-#  backend "remote" {
-#    hostname     = "app.terraform.io"
-#    organization = var.organization
-#  }
-#}
-
 terraform {
   required_version = "= 1.2.1"
 
@@ -25,12 +8,18 @@ terraform {
     }
   }
 
+  # Terraform s3 backend
   backend "s3" {
-    # Configuration see: params/*.backend
-    # Commands:
-    # terraform init -backend-config=params/templar.backend -reconfigure
-    # terraform plan -var-file=params/templar.tfvars
+    encrypt = true
+    bucket  = "terraform-state-kaxxu"
+    region  = "eu-west-1"
   }
+
+  # Terraform Cloud backend
+  #  backend "remote" {
+  #    hostname     = "app.terraform.io"
+  #    organization = var.organization
+  #  }
 }
 
 provider "aws" {

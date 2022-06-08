@@ -1,4 +1,0 @@
-encrypt = true
-bucket  = "terraform-state-kaxxu"
-key     = "templar/templar.tfstate"
-region  = "eu-west-1"
