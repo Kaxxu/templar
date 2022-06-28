@@ -1,1 +1,2 @@
-key = "templar/templar.tfstate"
+key            = "templar/templar.tfstate"
+dynamodb_table = "templar-lock"

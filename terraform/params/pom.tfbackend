@@ -1,1 +1,2 @@
-key = "pom/pom.tfstate"
+key            = "pom/pom.tfstate"
+dynamodb_table = "pom-lock"

@@ -1,5 +1,5 @@
 terraform {
-  required_version = "= 1.2.1"
+  required_version = "= 1.2.2"
 
   required_providers {
     aws = {
@@ -8,7 +8,7 @@ terraform {
     }
   }
 
-  # Terraform s3 backend
+  # Terraform S3 backend
   backend "s3" {
     encrypt = true
     bucket  = "terraform-state-kaxxu"
@@ -33,5 +33,16 @@ provider "aws" {
       Service     = var.service
       Repo        = "Kaxxu/templar"
     }
+  }
+}
+
+resource "aws_dynamodb_table" "terraform_locks" {
+  name         = "${var.name}-lock"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "LockID"
+
+  attribute {
+    name = "LockID"
+    type = "S"
   }
 }

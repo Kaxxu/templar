@@ -17,7 +17,7 @@ resource "aws_route_table" "main" {
 resource "aws_route" "main" {
   route_table_id         = aws_route_table.main.id
   destination_cidr_block = var.cidr_block
-  gateway_id             = aws_internet_gateway.igw.id
+  gateway_id             = aws_internet_gateway.main.id
 }
 
 resource "aws_route_table_association" "main" {
@@ -30,6 +30,6 @@ resource "aws_main_route_table_association" "main" {
   vpc_id         = aws_vpc.main.id
 }
 
-resource "aws_internet_gateway" "igw" {
+resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
 }
